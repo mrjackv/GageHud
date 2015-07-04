@@ -5,6 +5,12 @@
     "contact": "",
     "version": "1.0",
     "priority": 20,
+	"updates" : [
+		{
+			"revision" : 1,
+			"identifier" : "GageHud",
+		}
+	],
     "pre_hooks": [
         {
             "hook_id": "lib/managers/menumanager",
@@ -153,6 +159,9 @@
             "script_path": "Lua/HUDSuspicion_ext.lua"
         }
     ],
+	"persist_scripts" : [
+		{ "global" : "SkipRestart", "script_path" : "Lua/SkipRestart_ext.lua" }
+	],
     "keybinds": [
         {
             "keybind_id": "save_pre",
