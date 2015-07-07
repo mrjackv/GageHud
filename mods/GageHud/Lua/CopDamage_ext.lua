@@ -8,6 +8,14 @@ function CopDamage:_on_damage_received(damage_info, ...)
 	return _on_damage_received_original(self, damage_info, ...)
 end
 
+function CopDamage:_process_damage(aggressor, damage)
+	if alive(aggressor) and aggressor:base() then
+		if aggressor == managers.player:player_unit() or aggressor:base()._thrower_unit == managers.player:player_unit() then
+			HUDStatsScreen:add_damage(damage)
+		end
+	end
+end
+
 if mod_collection and mod_collection._data.enable_kill_counter then
 	local bullet_original = CopDamage.damage_bullet
 	local explosion_original = CopDamage.damage_explosion
@@ -42,14 +50,6 @@ if mod_collection and mod_collection._data.enable_kill_counter then
 				local is_special = managers.groupai:state()._special_unit_types[self._unit:base()._tweak_table] or false
 				managers.hud:increment_kill_count(panel_id, is_special, headshot)
 				return
-			end
-		end
-	end
-
-	function CopDamage:_process_damage(aggressor, damage)
-		if alive(aggressor) and aggressor:base() then
-			if aggressor == managers.player:player_unit() or aggressor:base()._thrower_unit == managers.player:player_unit() then
-				HUDStatsScreen:add_damage(damage)
 			end
 		end
 	end
