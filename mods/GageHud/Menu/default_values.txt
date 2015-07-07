@@ -30,5 +30,6 @@
     "enable_filtersettings": "on",
     "show_hostages": true,
     "show_special_pickups": true,
-    "show_headshot_kills": true
+    "show_headshot_kills": true,
+	"custom_hud_enabled": true
 }
