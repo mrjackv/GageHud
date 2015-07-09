@@ -7,8 +7,15 @@
     "priority": 20,
 	"updates" : [
 		{
-			"revision" : 1,
-			"identifier" : "GageHud",
+			"revision" : 2,
+			"identifier" : "gagehud",
+		},
+		{
+			"revision" : 2,
+			"identifier" : "gagehudtextures",
+			"install_dir" : "assets/mod_overrides/",
+			"install_folder" : "Extended Icons",
+			"display_name" : "GageHud Extended Icons"
 		}
 	],
     "pre_hooks": [
