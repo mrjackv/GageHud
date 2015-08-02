@@ -20,4 +20,4 @@ Currently I have not planned to do anything new and I don't have the time for it
 ###Contribution and BugFixes
 Create a pull request and I will look into it.
 
-####Big Credit to Seven, thatguyfrombreakingbad, UndeadSewer and the entire modding community. If I forgot to credit somebody, please let me know
+####Big Credit to Seven, thatguyfrombreakingbad, UndeadSewer, YandereSnake and the entire modding community. If I forgot to credit somebody, please let me know
