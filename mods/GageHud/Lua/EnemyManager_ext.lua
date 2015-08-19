@@ -115,7 +115,7 @@ function EnemyManager:_change_civilian_count(unit, change)
 		self._unit_count.civilian = self._unit_count.civilian + change
 		
 		if HUDManager.ListOptions.show_civilians and managers.hud and managers.hud:list_initialized() then
-			managers.hud:hud_list("right_side_list"):item("enemy_count_list"):item("civilian"):set_count(self._unit_count.civilian - managers.groupai:state():civilian_hostage_count())
+			managers.hud:hud_list("right_side_list"):item("enemy_count_list"):item("civilian"):set_count(self._unit_count.civilian - (managers.groupai:state():civilian_hostage_count() or 0))
 		end
 	end
 end
