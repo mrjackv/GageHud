@@ -47,6 +47,10 @@ local characters = {
 	sokol = {
 		texture = "guis/dlcs/character_pack_sokol/textures/pd2/blackmarket/icons/characters/sokol",
 		color = Color(1, 0, 0.91, 0.98)
+	},
+	dragon = {
+		texture = "guis/dlcs/dragon/textures/pd2/blackmarket/icons/characters/dragon",
+		color = Color(1, 0.55, 0.55, 0)
 	}
 }
 
