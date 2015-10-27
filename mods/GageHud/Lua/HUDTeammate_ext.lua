@@ -1356,7 +1356,13 @@ function HUDTeammate:set_name(teammate_name)
 		local sub_panel = self._name_panel:child("name_sub_panel")
 		local text = sub_panel:child("name")
 		text:set_left(0)
-		text:set_text(teammate_name)
+		if self:peer_id() then
+			local peer = managers.network:session():peer(self:peer_id())
+			local experience = " (" .. (peer:rank() > 0 and managers.experience:rank_string(peer:rank()) .. "-" or "") .. peer:level() .. ")"
+			text:set_text(teammate_name .. experience)
+		else
+			text:set_text(teammate_name)
+		end
 		local _, _, w, _ = text:text_rect()
 		w = w + 5
 		text:set_w(w)
