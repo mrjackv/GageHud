@@ -155,6 +155,12 @@ function HUDManager:show_player_gear(panel_id)
 		self._teammate_panels[panel_id]:set_gear_visible(true)
 	end
 end
+function HUDManager:set_stored_health(stored_health_ratio)
+	--self._teammate_panels[HUDManager.PLAYER_PANEL]:set_stored_health(stored_health_ratio)
+end
+function HUDManager:set_stored_health_max(stored_health_ratio)
+	--self._teammate_panels[HUDManager.PLAYER_PANEL]:set_stored_health_max(stored_health_ratio)
+end
 
 --TODO: Rewrite rest of options
 HUDManager.ListOptions = HUDManager.ListOptions or {
