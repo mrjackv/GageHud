@@ -205,11 +205,21 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_dynamic_hud", functio
 		mod_collection:Save()
 	end
 
+	MenuCallbackHandler.callback_loot_screen_skip_enabled = function(self, item)
+		mod_collection._data.loot_screen_skip_enabled = (item:value() =="on")
+		mod_collection:Save()
+	end
+	
 	MenuCallbackHandler.callback_loot_screen_skip = function(self, item)
 		mod_collection._data.loot_screen_skip = item:value()
 		mod_collection:Save()
 	end
 
+	MenuCallbackHandler.callback_stat_screen_skip_enabled = function(self, item)
+		mod_collection._data.stat_screen_skip_enabled = item:value()
+		mod_collection:Save()
+	end
+	
 	MenuCallbackHandler.callback_stat_screen_skip = function(self, item)
 		mod_collection._data.stat_screen_skip = item:value()
 		mod_collection:Save()
