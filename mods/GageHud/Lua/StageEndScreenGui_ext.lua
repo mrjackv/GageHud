@@ -1,4 +1,4 @@
-if mod_collection and mod_collection._data.enable_speed_up then
+if mod_collection and mod_collection._data.enable_speed_up and mod_collection._data.stat_screen_skip_enabled then
 	local SKIP_STAT_SCREEN_DELAY = mod_collection._data.stat_screen_skip
 
 	local update_original = StageEndScreenGui.update
