@@ -512,6 +512,13 @@ function HUDTeammate:set_current_stamina(value)
 	end
 end
 
+function HUDTeammate:set_storted_health_max(stored_health_ratio)
+    --Don't care!
+end
+function HUDTeammate:set_stored_health(stored_health_ratio)
+    --Don't care!
+end
+
 function HUDTeammate:_create_weapons_panel(width, height, scale)
 	local function populate_weapon_panel(panel)
 		if self._main_player then
