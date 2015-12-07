@@ -130,6 +130,7 @@ function HUDTeammate:_create_player_panel()
 	local scale = HUDTeammate._PLAYER_PANEL_SCALE
 	self:_create_main_panel(575 + 4 * 5 * scale, 80, scale)
 	self:_create_health_panel(60, 60, scale)
+	self:_create_rip_panel(60,60,scale)
 	self:_create_stamina_panel(15, 60, scale)
 	self:_create_weapons_panel(360, 60, scale)
 	self:_create_equipment_panel(60, 80, scale)
@@ -363,6 +364,35 @@ function HUDTeammate:_create_health_panel(width, height, scale)
 	]]
 end
 
+function HUDTeammate:_create_rip_panel(width, height, scale)
+	
+	local radial_rip = self._health_panel:bitmap({
+		name = "radial_rip",
+		texture = "guis/textures/pd2/hud_rip",
+		texture_rect = { 64, 0, -64, 64 },
+		render_template = "VertexColorTexturedRadial",
+		color = Color(1, 0, 0, 0),
+		w = self._health_panel:w(),
+		h = self._health_panel:h(),
+		layer = 3
+	})
+	radial_rip:hide()
+	
+	local radial_rip_bg = self._health_panel:bitmap({
+		name = "radial_rip_bg",
+		texture = "guis/textures/pd2/hud_rip_bg",
+		texture_rect = { 64, 0, -64, 64 },
+		render_template = "VertexColorTexturedRadial",
+		blend_mode = "add",
+		color = Color(1, 0, 0, 0),
+		w = self._health_panel:w(),
+		h = self._health_panel:h(),
+		layer = 1
+	})
+	radial_rip_bg:set_visible(managers.player:has_category_upgrade("player", "armor_health_store_amount"))
+
+end
+
 function HUDTeammate:set_health(data)
 	local radial_health = self._health_panel:child("radial_health")
 	local red = data.current / data.total
@@ -512,11 +542,35 @@ function HUDTeammate:set_current_stamina(value)
 	end
 end
 
-function HUDTeammate:set_storted_health_max(stored_health_ratio)
-    --Don't care!
+function HUDTeammate:set_stored_health_max(stored_health_ratio)
+	local rip_bg = self._health_panel:child("radial_rip_bg")
+	if alive(rip_bg) then
+		rip_bg:set_color(Color(1,math.min(stored_health_ratio,1),1,1))
+	end
 end
+
 function HUDTeammate:set_stored_health(stored_health_ratio)
-    --Don't care!
+	local rip = self._health_panel:child("radial_rip")
+	if alive(rip) then
+		do			
+			local red = math.min(stored_health_ratio, 1)
+			rip:set_visible(red > 0)
+			rip:stop()
+			if red < rip:color().red then
+				rip:set_color(Color(1, red, 1, 1))
+			else
+				rip:animate(function(o)
+					local s = rip:color().r
+					local e = red
+					over(0.2, function(p)
+								rip:set_color(Color(1, math.lerp(s, e, p), 1, 1))
+								end
+						)
+					end
+				)
+			end
+		end
+	end
 end
 
 function HUDTeammate:_create_weapons_panel(width, height, scale)

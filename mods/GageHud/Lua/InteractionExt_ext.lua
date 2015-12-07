@@ -20,7 +20,7 @@ if SHOW_TIMERS then
 				end
 			end
 			local list_item = managers.hud:hud_list("left_side_list"):item("timers"):item("timer_" .. tostring(self._unit:key()))
-			if list_item then
+			if list_item:set_can_upgrade then
 				list_item:set_can_upgrade(can_upgrade)
 			end
 		end

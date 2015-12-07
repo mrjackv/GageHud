@@ -155,12 +155,6 @@ function HUDManager:show_player_gear(panel_id)
 		self._teammate_panels[panel_id]:set_gear_visible(true)
 	end
 end
-function HUDManager:set_stored_health(stored_health_ratio)
-	--self._teammate_panels[HUDManager.PLAYER_PANEL]:set_stored_health(stored_health_ratio)
-end
-function HUDManager:set_stored_health_max(stored_health_ratio)
-	--self._teammate_panels[HUDManager.PLAYER_PANEL]:set_stored_health_max(stored_health_ratio)
-end
 
 --TODO: Rewrite rest of options
 HUDManager.ListOptions = HUDManager.ListOptions or {
@@ -472,6 +466,18 @@ function HUDManager:set_show_equipment(status)
 			end
 		end
 	end
+end
+
+function HUDManager:set_teammate_condition(i, icon_data, text)
+	if not i then
+		print("Didn't get a number")
+		Application:stack_dump()
+		return
+	end
+	if icon_data == "mugshot_in_custody" then
+		self._teammate_panels[i]:reset_downs()
+	end
+	self._teammate_panels[i]:set_condition(icon_data, text)
 end
 
 function HUDManager:set_show_ecms(status)
