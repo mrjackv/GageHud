@@ -1696,7 +1696,7 @@ do
 		HUDList.TimerItem.init(self, parent, name, unit:position(), "Drill", unit)
 	end
 	
-	function HUDList.DrillItem:set_can_upgrade(status)
+	function HUDList.TimerItem:set_can_upgrade(status)
 		self._can_upgrade = status
 		self._current_color = status and self.UPGRADE_COLOR or self.STANDARD_COLOR
 		self._flash_color_table[2].color = status and self.UPGRADE_COLOR or self.STANDARD_COLOR
