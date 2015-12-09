@@ -22,7 +22,7 @@ function HUDInteraction:init(hud, child_name)
 		font_size = tweak_data.hud_present.text_size + 8,
 		h = 64
 	})
-	self._interact_timer_text:set_y(self._hud_panel:h() / 2)
+	self._interact_timer_text:set_y(self._hud_panel:h() / 2.1)
 	self._start_color = Color(1, 1, 1, 0)
 end
 
