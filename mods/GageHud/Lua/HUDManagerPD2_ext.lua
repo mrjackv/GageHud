@@ -1464,6 +1464,7 @@ do
 		bomb =			{ text = "Bomb" },
 		evidence =	{ text = "Evidence" },
 		warhead =		{ text = "Warhead" },
+		present =		{ text = "Present" }
 		--container =	{ text = "?" },
 	}
 	
