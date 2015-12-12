@@ -38,7 +38,7 @@ ObjectInteractionManager.LOOT_TYPE_FROM_CARRY_ID = {
 	cro_loot2 =				"bomb",
 	evidence_bag =			"evidence",
 	warhead =					"warhead",
-	hold_pku_present = 			"present"
+	present =		 			"present"
 }
 
 ObjectInteractionManager.LOOT_TYPE_LEVEL_COMPENSATION = {
