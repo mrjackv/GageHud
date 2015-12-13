@@ -51,6 +51,10 @@ local characters = {
 	dragon = {
 		texture = "guis/dlcs/dragon/textures/pd2/blackmarket/icons/characters/dragon",
 		color = Color(1, 0.55, 0.55, 0)
+	},
+	bodhi = {
+		texture = "guis/dlcs/rip/textures/pd2/blackmarket/icons/characters/bodhi",
+		color = Color(1, 0.67, 0.49, 0.43)
 	}
 }
 
